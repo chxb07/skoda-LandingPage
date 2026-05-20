@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Sora', sans-serif;
+  --color-brand-emerald: #00b050; /* Skoda Signature Emerald Green */
+  --color-brand-dark-green: #006020;
+  --color-brand-glow: rgba(0, 176, 80, 0.15);
+  --color-luxury-bg: #030303;
+  --color-luxury-card: #0d0d0d;
+  --color-luxury-border: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background-color: var(--color-luxury-bg);
+    color: #f3f4f6;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #030303;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #222;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-brand-emerald);
+  }
+}
+
+/* Glassmorphism custom utilities */
+.glass-card {
+  background: rgba(13, 13, 13, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-hover:hover {
+  background: rgba(13, 13, 13, 0.8);
+  border-color: rgba(0, 176, 80, 0.3);
+  box-shadow: 0 0 30px rgba(0, 176, 80, 0.1);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 30%, #a3a3a3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #ffffff 40%, #00b050 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Luxury glow animation */
+@keyframes ambient-glow {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.2;
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+    opacity: 0.3;
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+    opacity: 0.25;
+  }
+}
+
+.animate-glow-1 {
+  animation: ambient-glow 15s infinite alternate ease-in-out;
+}
+
+.animate-glow-2 {
+  animation: ambient-glow 20s infinite alternate-reverse ease-in-out;
+}
+
+/* Interactive noise overlay */
+.noise-overlay {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
